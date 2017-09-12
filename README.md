@@ -12,3 +12,7 @@ The general idea of multi-task learning is to utilize the relationship between t
 
 The input to the code should be a set of csv files. assuming there are m tasks, the number of csv files is 2m. For each task there should be two corresponding csv files. They should be named features_ and labels_ followed by the task number. The tasks should be numbered from 1 to m. For each task t, the features file includes a N_txd matrix of features, where N_t is the number of data points in task t and d is the feature length. The labels file for task t includes an N_tx1 vector of -1 and +1 which is the corresponding labels for the N_t data points in task t.
 
+Based on what we mentioned earlier, the relative performance of the different methods is substantially dependent on the number of training points. You can control this number by changing the test_perc variable which indicates the percentage of data points used for testing. 
+By default, we use a cv=5 fold cross validation with 10 trials to evaluate each method. We do a grid search over hyper-params to find the best set of parameters.
+
+Finally it shows the average score for each of the tasks as well as the avergae and std of the overall score for all tasks for all emthods. In order to define the overall score we simply average the score of the method over different tasks.
